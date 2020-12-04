@@ -1,50 +1,41 @@
 class Sol1:
     def __init__(self):
-        with open('input.txt', 'r') as f:
+        with open('inputD3.txt', 'r') as f:
             data = f.read()
-        data = data.split('\n')
-        self.data = data
-        self.rows = len(data)
-        self.cols = len(data[0])
+        self.data = data.split('\n')
+        self.cols, self.rows = len(self.data[0]), len(self.data)
         self.c, self.r = 0, 0
         self.re = 0
 
-    def cnt(self):
-        if self.r < self.rows and self.data[self.r][self.c] == '#':
-            self.re += 1
-
-    def right(self):
-        self.c = (self.c+1) % self.cols
-
-    def down(self):
-        self.r += 1
-
     def chk(self, right, down):
-        while self.r < self.rows:
+        while True:
             for i in range(right):
-                self.right()
+                self.c = (self.c+1) % self.cols
             for i in range(down):
-                self.down()
-            self.cnt()
+                self.r += 1
+            if not self.r < self.rows:
+                break
+            if self.data[self.r][self.c] == '#':
+                self.re += 1
         return self.re
 
 
 class Sol2:
-    def __init__(self, arr):
-        self.arr = arr
-
-    def chk(self):
+    def __init__(self):
         self.re = 1
-        for r, d in self.arr:
+
+    def chk(self, arr):
+        for r, d in arr:
             tmp = Sol1().chk(r, d)
             self.re *= tmp
         return self.re
 
 
 arr = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
-t = Sol2(arr).chk()
+t = Sol2().chk(arr)
 print('Sol2:', t)
-
+# Sol2: 3316272960
 
 t = Sol1().chk(3, 1)
 print('Sol1:', t)
+# Sol1: 203
