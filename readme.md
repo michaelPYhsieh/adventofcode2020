@@ -5,10 +5,7 @@
 3 ⭐⭐
 
 4 ⭐⭐ 
-[learned: inspect](https://github.com/michaelPYhsieh/adventofcode2020/blob/f049c542d74ecea3079dcdee66a11d489902fdf4/Day%204:%20Passport%20Processing.py#L35)
-
-
-
+[blog post](https://michaelpyhsieh.netlify.app/posts/py/%E4%BD%BF%E7%94%A8inspect%E4%BE%86iterate-class%E5%85%A7%E7%9A%84method/)
 
 
 
